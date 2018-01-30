@@ -17,7 +17,7 @@
 			height: 70px;
 			top: 100px;
 			left: 0px;
-			background-color: teal;
+			background-color: rgb(0, 198, 255);
 			font-size: 300%;
 			text-align: center;
 		}
@@ -45,17 +45,28 @@
 			boardWidth = $('.board').width();
 
 			// TODO 2
-
-
+			var position = 0, points = 0, speed = 10, direction = 1;
+			box.css('left', position);      // changes the 'left' css property of the box to value of var position
+			box.text(points);               // changes the text of the box to display the value of var points
 			// TODO 3 / 4
 			update = function() {
-
+				position = position + (speed * direction);
+				if (position > boardWidth) {
+					direction = -1;
+				}
+				else if (position < 0) {
+					direction = 1;
+				}
+				box.css('left', position);
+				box.text(points);
 			};
 
-
+			
 			// TODO 5 / 6
 			handleBoxClick = function() {
-
+				speed = speed +3;
+				position = 0;
+				points = points + 1;
 			};
 
 
